@@ -1,25 +1,12 @@
-import { defineStep, Given } from "cypress-cucumber-preprocessor/steps";
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 
-defineStep("I open example page", () => {
-  cy.visit("https://www.example.com");
-  cy.get('title').contains('Example Domain')
+// Étape pour visiter la page d'accueil
+Given('je suis sur la page d\'accueil', () => {
+  cy.visit('https://www.example.com'); // Changez l'URL si nécessaire
 });
 
-defineStep("I see page title", () => {
-  cy.get('title').should('contain', 'Example Domain')
-  cy.get('title').should('not.be.visible')
-  cy.get("h1").should("be.visible")
-  cy.get("h1").should("contain", "Example Domain");
-});
-defineStep("I see a paragraph", () => {
-  cy.get('p').should('be.visible')
-  cy.get('p').contains('This domain is for use in illustrative examples in documents.')
-});
-
-defineStep("I see page title {string}", (name) => {
-  cy.get('title').should('contain', 'Example Domain')
-  cy.get('title').should('not.be.visible')
-  cy.get("h1").should("be.visible");
-  cy.get("h1").should("contain", `${name}`);
+// Étape pour vérifier la présence d'un lien dans un paragraphe
+Then('je devrais voir un lien dans un paragraphe', () => {
+  cy.get('p').find('a').should('be.visible'); // Cherche un lien <a> dans un paragraphe <p>
 });
 
