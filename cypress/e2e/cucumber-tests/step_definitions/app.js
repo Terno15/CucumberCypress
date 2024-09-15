@@ -16,10 +16,10 @@ defineStep("I see a paragraph", () => {
   cy.get('p').contains('This domain is for use in illustrative examples in documents.')
 });
 
-// defineStep("I see page title {string}", (name) => {
-//   cy.get('title').should('contain', 'Example Domain')
-//   cy.get('title').should('not.be.visible')
-//   cy.get("h1").should("be.visible");
-//   cy.get("h1").should("contain", `${name}`);
-// });
+defineStep("I see page title {string}", (name) => {
+  cy.get('title').should('contain', 'Example Domain')
+  cy.get('title').should('not.be.visible')
+  cy.get("h1").should("be.visible");
+  cy.get("h1").should("contain", `${name}`);
+});
 
