@@ -33,6 +33,8 @@ Then('je devrais voir un lien dans un paragraphe', () => {
   .last().find('a')
   .contains('More information...').should('exist')
   .should('be.visible'); // Cherche un lien <a> dans un paragraphe <p>
+
+  cy.get('a').invoke('attr', 'href').should('eq', 'https://www.iana.org/domains/example')
 });
 
 
