@@ -1,0 +1,10 @@
+import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
+
+Given('I open example page', () => {
+  cy.visit('https://example.com/');
+});
+
+Then('I see page title {string}', (title) => {
+  cy.title().should('eq', title);
+});
+
