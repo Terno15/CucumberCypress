@@ -5,7 +5,7 @@ Feature: Demo Feature
 
 Scenario: Ouvrir la page example.com
     Given I open example page
-    Then I should see the page title
+    Then I see page the title 'Example Domain'
     Then I see a paragraph
     
 

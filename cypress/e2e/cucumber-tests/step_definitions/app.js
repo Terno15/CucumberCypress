@@ -5,23 +5,24 @@ import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 Given('I open example page', () => {
   cy.visit('https://example.com'); // Remplacez par l'URL que vous souhaitez ouvrir
 });
-
 // Vérifier que le titre de la page est visible
-Then('I should see the page title', () => {
-  cy.get('title').should('not.be.empty')// Vérifier que le titre de la page n'est pas vide
-  .contains('Example Domain')
+Then("I see page the title {string}",(name) => {
+  cy.get('title').should('not.be.empty').contains('Example Domain')
+  cy.get("title").should("contain", `${name}`)
+  cy.title().should('eq', 'Example Domain')
   cy.get('title').should('contain', 'Example Domain')
   cy.get('title').should('not.be.visible')
   cy.get("h1").should("be.visible")
   cy.get("h1").should("contain", "Example Domain");
+  
   cy.get('h1').invoke('text').then((text) => {
     expect(text).to.equal('Example Domain'); // Vérifie que le texte est 'Example Domain'
+    cy.title().should('eq', 'Example Domain')
   });
-  
-
 });
 Then('I see a paragraph', () => {
   cy.get('p').first().should('not.be.empty')// Vérifier que le titre de la page n'est pas vide
+  cy.go('back')
 });
 
 //Étape pour visiter la page d'accueil
