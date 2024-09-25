@@ -1,4 +1,4 @@
-import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
+import { Given,Then } from 'cypress-cucumber-preprocessor/steps';
 
 // Deuxième test réécris d'une autre manière
 // Étape pour ouvrir la page exemple
